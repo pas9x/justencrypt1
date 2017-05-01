@@ -1,0 +1,6 @@
+/*
+!.gitignore
+!/static_priv
+!/static_pub
+!/userdata
+!readme.md

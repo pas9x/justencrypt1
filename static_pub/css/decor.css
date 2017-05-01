@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'archangelsk';
+  src: url('../fonts/archangelsk/archangelsk.eot');
+  src: url('../fonts/archangelsk/archangelsk.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/archangelsk/archangelsk.ttf') format('truetype'),
+  url('../fonts/archangelsk/archangelsk.woff') format('woff'),
+  url('../fonts/archangelsk/archangelsk.svg#chatfont1') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'days';
+  src: url('../fonts/days/days.eot');
+  src: url('../fonts/days/days.eot?#iefix')format('embedded-opentype'),
+  url('../fonts/days/days.woff') format('woff'),
+  url('../fonts/days/days.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'lucida console';
+  src: url('../fonts/lucon/lucon.eot');
+  src: url('../fonts/lucon/lucon.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/lucon/lucon.woff2') format('woff2'),
+  url('../fonts/lucon/lucon.woff') format('woff'),
+  url('../fonts/lucon/lucon.ttf') format('truetype'),
+  url('../fonts/lucon/lucon.svg#lucida_console') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: lucida console;
+  color: #1E301E;
+}
+
+ol, ul, li {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom:0
+}
+
+a {
+  color: #2E8C2E;
+  text-decoration: none
+}
+
+a:hover {
+  text-decoration: underline
+}
+
+img {
+  border: 0;
+  padding: 0;
+  margin: 0
+}
+
+p, form, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0
+}
+
+label {cursor:pointer}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+td, th {
+  padding: 0;
+  vertical-align: top
+}
+
+hr {
+  display: block;
+  height: 0;
+  color: transparent;
+  border: 0;
+  border-top: 1px dotted #0A0;
+  margin: 5px 0;
+}
+
+input, textarea, select, button {
+  font-weight: bold;
+  line-height: 15px;
+}
+
+input[type='button'], input[type='submit'], button {
+  border: 2px solid #93CF93;
+  background: linear-gradient(to bottom, #DFD, #CEEFCC);
+  font-size: 15px;
+  font-weight: normal;
+  padding: 1px 10px 2px 10px;
+  color: #001E01;
+}
+
+em {
+  display: block;
+  margin: 0;
+  padding: 0 6px 0 0;
+  font-style:inherit
+}
+
+cite, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {display:none}
+
+table.form td, table.form th {padding:2px}
+table.form .header {
+  background: #E0F8E3;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+table.grid td, table.grid th {
+  border:1px solid #418617;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+table.grid th {
+  background: linear-gradient(to bottom, #62D446, #396820);
+  color: #FFF;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 15px;
+}
+
+h1.cool, h2.cool, h3.cool, h4.cool, h5.cool, h6.cool {
+  font-family: days;
+}

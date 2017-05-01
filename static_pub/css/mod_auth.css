@@ -1,0 +1,66 @@
+.auth {
+    text-align: center;
+}
+
+.auth > div {
+    width: 250px;
+    border: 2px solid #268626;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: left;
+    margin: 50px auto;
+    background: linear-gradient(to bottom, #FFF, #F8FFF8);
+}
+
+.auth > div > h5 {
+    display: block;
+    overflow: hidden;
+    margin: -8px -8px 0 -8px;
+}
+
+.auth > div > h5 > span {
+    float: left;
+    background: #268626;
+    color: #FFF;
+    display: block;
+    padding: 2px 4px 2px 6px;
+}
+
+.auth > div > h5 > i {
+    display: block;
+    float: left;
+    width: 13px;
+    height: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.auth > div > h5 > i::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 100%;
+    background: #268626;
+    transform: matrix(1, 0, -0.65, 1, 0, 0);
+    float: left;
+    position: absolute;
+    right: 7px;
+    top: 0;
+}
+
+.auth > div > table {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.auth > div > table td {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.auth input[name='login'], .auth input[name='pass'] {
+    float: right;
+    text-align: center;
+}

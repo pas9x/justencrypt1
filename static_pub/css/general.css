@@ -1,0 +1,249 @@
+html {
+  background: scroll #FFF url(/pic/page-bg.png) center center no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  color: #010;
+  min-width: 800px;
+}
+
+header.page {
+  height: 70px;
+  position: relative;
+  background: linear-gradient(to bottom, #3A3, #268626);
+  color: #FFF;
+}
+
+header.page img {
+  position: absolute;
+  left: 20px;
+  top: 8px;
+  height: 54px;
+}
+
+header.page h1 {
+  position: absolute;
+  left: 100px;
+  top: 8px;
+  font-family: days;
+  font-size: 25px;
+}
+
+header.page h1 a {
+  color: inherit;
+}
+
+header.page span {
+  position: absolute;
+  left: 100px;
+  top: 40px;
+}
+
+.leftside {
+  width: 300px;
+  margin-right: -300px;
+  float: left;
+}
+
+.modcontent {
+  margin-left: 300px;
+  padding-top: 10px;
+}
+
+.leftside h3 {
+  position: relative;
+  background: linear-gradient(to bottom, #3A3, #268626);
+  color: #FFF;
+  font-family: days;
+  height: 25px;
+  font-size: 17px;
+  line-height: 23px;
+  padding-left: 12px;
+  margin-right: 25px;
+  margin-top: 4px;
+}
+
+.leftside h3:first-child::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(to bottom, #3A3, #268626);
+  position: absolute;
+  top: 0;
+  right: -10px;
+  transform: matrix(1, 0, -0.8, 1, 0, 0);
+}
+
+.leftside ol, .leftside form {
+  margin-right: 25px;
+  border-right: 2px solid #268626;
+  border-bottom: 2px solid #268626;
+  background: linear-gradient(to bottom, #FFF, #EEFFF2);
+}
+
+.leftside ol {
+  list-style: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.leftside ol li {
+  padding: 3px 0;
+}
+
+.leftside form {
+  padding: 12px;
+}
+
+.leftside form input {
+  text-align: center;;
+}
+
+.leftside form td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#hint, .note {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+#hint {display:none}
+
+footer.page {
+  clear: both;
+  background: #268626;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
+  color: #FFF;
+  position: relative;
+  top: 4px;
+}
+
+footer.page a {color:#FFF}
+
+/* --- Сообщение ---------------------------------------------------------------------------------------------------- */
+
+.messageScreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #FFF, #DDD);
+}
+
+.messageScreen td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.messageBox {
+  width: 400px;
+  border: 2px solid #3DAD66;
+  padding: 60px 14px 18px 14px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  position: relative;
+  background: #FFF;
+  overflow: hidden;
+  border-radius: 6px;
+  line-height: normal;
+}
+
+.messageHeader {
+  overflow: hidden;
+  height: 55px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  border-radius: 3px 3px 0 0;
+}
+
+.messageHeader .logo {
+  padding: 3px 7px 3px 22px;
+  background: linear-gradient(to bottom right, #4EBD77, #037B00);
+  transform: matrix(1, 0, -0.55, 1, 0, 0);
+  overflow: hidden;
+  position: absolute;
+  left: -15px;
+  top: 0;
+}
+
+.messageHeader .logo img {
+  float: left;
+  transform: matrix(1, 0, 0.55, 1, 0, 0);
+  width: 50px;
+}
+
+.messageHeader .label {
+  background: #69AE6A;
+  position: absolute;
+  top: 0;
+  right: -14px;
+  height: 42px;
+  left: 71px;
+  transform: matrix(1, 0, -0.55, 1, 0, 0);
+  text-align: center;
+  padding-right: 30px;
+}
+
+.messageHeader .label span {
+  display: block;
+  transform: matrix(1, 0, 0.55, 1, 0, 0);
+  color: #FFF;
+  font: normal 24px days;
+  line-height: 40px;
+}
+
+.messageHeader .borderLeft {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 9px;
+  width: 55px;
+  border-bottom: 2px solid #3DAD66;
+  border-right: 2px solid #3DAD66;
+  transform: matrix(1, 0, -0.55, 1, 0, 0);
+}
+
+.messageHeader .borderRight {
+  position: absolute;
+  bottom: 9px;
+  right: 0;
+  left: 58px;
+  height: 2px;
+  background: #3DAD66;
+}
+
+.messageBox .backLink {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+  display: block;
+  float: right;
+  background: #3DAD66;
+  color: #FFF;
+  padding: 0 15px 0 10px;
+  transform: matrix(1, 0, -0.7, 1, 0, 0);
+  font-size: 15px;
+  line-height: 18px;
+  height: 18px;
+  overflow: hidden;
+}
+
+.messageBox .backLink span {
+  transform: matrix(1, 0, 0.7, 1, 0, 0);
+  display: block;
+}
+
+.messageBox .backLink:hover {
+  text-decoration: none;
+}

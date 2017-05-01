@@ -1,0 +1,20 @@
+<form method='POST' action='/index.php?get=install'>
+  <table class='form'>
+    <tr><th colspan='2' class='header'>Аккаунт панели</th></tr>
+    <!--<tr><td>Логин:</td><td><input type='text' name='login' value='admin'></td></tr>-->
+    <tr><td width='1'>Пароль администратора:&nbsp;</td><td><input type='text' name='pass'></td></tr>
+    <tr><th colspan='2' class='header'>Аккаунт Let&#039;s Encrypt</th></tr>
+    <tr><td>E-mail:</td><td><input type='text' name='email'></td></tr>
+    <tr><td colspan='2'>
+      Приватный ключ аккаунта:<br>
+      <textarea cols='80' rows='10' name='leAccountKey'></textarea>
+    </td></tr>
+    <tr><td colspan='2'>
+      <hr>
+      <input type='submit' value='Установить'>
+    </td></tr>
+  </table>
+  <div class='note'>
+    * Вы можете не указывать приватный ключ вашего аккаунта Let`s Encrypt, в этом случае аккаунт будет зарегистрирован автоматически на указанный вами email.
+  </div>
+</form>
