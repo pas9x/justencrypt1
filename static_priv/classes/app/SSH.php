@@ -51,7 +51,7 @@ class SSH {
         $errors = [];
         $db = getDB();
 
-        $isShared = boolval($isShared);
+        $isShared = (boolean)$isShared;
 
         if ($isShared) {
             $sharedName = strval($sharedName);
@@ -153,7 +153,7 @@ class SSH {
             throw new ErrorMessage("SSH-аккаунт #$idSsh не существует");
         }
 
-        $isShared = boolval($isShared);
+        $isShared = (boolean)$isShared;
 
         if ($isShared) {
             $sharedName = strval($sharedName);

@@ -52,8 +52,8 @@ foreach ($fsNodes as $fsNode) {
     $db->query($createTable);
 }
 
-$keysFile = DATADIR . '/keys.php';
-if (!file_exists($keysFile)) {
+$configFile = DATADIR . '/config.php';
+if (!file_exists($configFile)) {
     $saltPriv = keygen(32);
     $saltPub = keygen(32);
     $cryptKey = keygen(32);
@@ -64,8 +64,8 @@ define('SALT_PUB', '$saltPub');
 define('CRYPT_KEY', '$cryptKey');
 
 PHP;
-    file_put_contents($keysFile, $keys);
-    require $keysFile;
+    file_put_contents($configFile, $keys);
+    require $configFile;
 }
 
 setOption('authInterval', 10);

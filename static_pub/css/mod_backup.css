@@ -1,0 +1,15 @@
+.modcontent .create div {
+    margin: 8px 0;
+}
+
+.modcontent .import {
+    margin-top: 10px;
+}
+
+.modcontent .import div {
+    margin: 8px 0;
+}
+
+.modcontent fieldset {
+    margin-right: 8px;
+}

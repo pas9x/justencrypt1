@@ -238,6 +238,57 @@ class Cert {
         ];
     }
 
+    public static function addCert($certDomain, $certIssuer, $privateKey, $csr, $idSsh, $documentRoot, $addTime = null)
+    {
+        $idSsh = intval($idSsh);
+        $ssh = SSH::getAccount($idSsh);
+
+        $certParsed = openssl_x509_parse($certDomain, false);
+        if (!is_array($certParsed)) {
+            throw new Exception('Failed to parse provided string as PEM certificate');
+        }
+
+        if (!isset($certParsed['subject']['commonName'])) {
+            throw new Exception("This certificate does not contain 'commonName' element");
+        }
+        $domain = $certParsed['subject']['commonName'];
+
+        if (!isset($certParsed['validFrom_time_t'])) {
+            throw new Exception('This certificate has no validFrom_time_t field');
+        }
+        $issued = $certParsed['validFrom_time_t'];
+
+        if (!isset($certParsed['validTo_time_t'])) {
+            throw new Exception('This certificate has no validTo_time_t field');
+        }
+        $expire = $certParsed['validTo_time_t'];
+
+        $db = getDB();
+
+        if ($db->hasResult('SELECT idCert FROM cert WHERE domain=?', $domain)) {
+            throw new ErrorMessage("Сертификат для домена $domain уже существует");
+        }
+
+        $db->insert(
+            'cert',
+            null,
+            $idSsh,
+            $domain,
+            $documentRoot,
+            is_int($addTime) ? $addTime : time(),
+            date('Y-m-d', $issued),
+            date('Y-m-d', $expire),
+            $privateKey,
+            $certDomain,
+            $certIssuer,
+            $csr,
+            crc32($certDomain)
+        );
+        $result = $db->insertId();
+
+        return $result;
+    }
+
     public static function registerCert($domain, $documentRoot, $idSsh)
     {
         $idSsh = intval($idSsh);
@@ -303,7 +354,7 @@ class Cert {
         }
         $cert = @openssl_x509_parse($cert);
         if (!is_array($cert)) {
-            throw new Exception('Failed to parse $cert as c509 certificate');
+            throw new Exception('Failed to parse $cert as x509 certificate');
         }
         if (!isset($cert['validTo_time_t'])) {
             throw new Exception('This certificate has no validTo_time_t field');

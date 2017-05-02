@@ -70,9 +70,9 @@ spl_autoload_register('loadClass', true);
 date_default_timezone_set('Etc/UTC');
 mb_internal_encoding('UTF-8');
 
-$keysFile = DATADIR . '/keys.php';
-if (file_exists($keysFile)) {
-    require $keysFile;
+$configFile = DATADIR . '/config.php';
+if (file_exists($configFile)) {
+    require $configFile;
 }
 
 foreach (scandir(PRIVDIR . '/inc_auto') as $node) {

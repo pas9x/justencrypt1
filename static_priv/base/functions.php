@@ -260,7 +260,7 @@ function getDB($close = false)
 {
     static $db = null;
     if ($close) {
-        $db->close();
+        if ($db) $db->close();
         $db = null;
         return null;
     } else {
