@@ -6,7 +6,7 @@
   <tr><th colspan='2' class='header'>Общие настройки</th></tr>
   <tr><td>Время жизни сессии:</td><td><input type='text' name='sessionLifetime' value='{{ $sessionLifetime }}' size='6'> секунд</td></tr>
   <tr><td>Интервал между попытками входа:</td><td><input type='text' name='authInterval' value='{{ $authInterval }}' size='6'> секунд</td></tr>
-  <tr><td>Новый пароль администратора:</td><td><input type='text' name='newPass'></td></tr>
+  <tr><td>Продлевать сертификаты за:</td><td><input type='text' name='prolongDaysEarly' value='{{ $prolongDaysEarly }}' size='6'> дней</td></tr>
   <tr><td>Новый пароль администратора:</td><td><input type='text' name='newPass'></td></tr>
 
   <tr><th colspan='2' class='header'>Аккаунт Let`s Encrypt</th></tr>

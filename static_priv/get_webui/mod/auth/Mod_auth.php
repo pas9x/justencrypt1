@@ -1,20 +1,24 @@
 <?php
 
 class Mod_auth extends WebuiModule {
-    public function getName() {
+    public function getName()
+    {
         return 'auth';
     }
 
-    public function getTitle() {
+    public function getTitle()
+    {
         return 'Авторизация';
     }
 
-    public function func_index() {
+    public function func_index()
+    {
         $tpl = new Template(PRIVDIR . '/templates/webui');
         $tpl->display('auth');
     }
 
-    public function func_doit() {
+    public function func_doit()
+    {
         if (!checkPost('pass')) {
             displayError('Требуется POST-параметр pass');
         }
@@ -44,5 +48,17 @@ class Mod_auth extends WebuiModule {
 
         $link = self::modLink('index');
         redirect($link);
+    }
+
+    public function func_logout()
+    {
+        $backLink = $this->selfLink();
+        if (isAdmin()) {
+            delOption('adminSessid');
+            delOption('adminIP');
+            displayOk('Сессия завершена, авторизация снята.', $backLink, 'Авторизация');
+        } else {
+            displayError('Вы итак не авторизированы.', $backLink, 'Авторизация');
+        }
     }
 }

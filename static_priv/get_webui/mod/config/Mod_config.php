@@ -16,6 +16,7 @@ class Mod_config extends WebuiModuleAdmin {
             'action' => $this->selfLink('saveConfig'),
             'leRegisterLink' => self::modLink('cert', 'registerAccountConfirm'),
             'authInterval' => getOption('authInterval'),
+            'prolongDaysEarly' => getOption('prolongDaysEarly'),
             'sessionLifetime' => getOption('sessionLifetime'),
             'adminEmail' => getOption('adminEmail'),
             'defaultCsrTemplate' => getOption('defaultCsrTemplate'),
@@ -36,6 +37,13 @@ class Mod_config extends WebuiModuleAdmin {
         $authInterval = intval(post('authInterval'));
         if ($authInterval < 1) {
             $errors[] = 'Интервал между попытками входа не должен быть меньше 1 секунды';
+        }
+
+        $prolongDaysEarly = intval(post('prolongDaysEarly'));
+        if ($prolongDaysEarly < 1) {
+            $errors[] = 'Неверно указано количество дней до продления сертификата';
+        } elseif ($prolongDaysEarly > 30) {
+            $errors[] = 'Продление сертификата допускается не раньше чем за 30 дней до окончания его срока действия';
         }
 
         $newPass = post('newPass');
@@ -89,6 +97,7 @@ class Mod_config extends WebuiModuleAdmin {
 
         setOption('sessionLifetime', $sessionLifetime);
         setOption('authInterval', $authInterval);
+        setOption('prolongDaysEarly', $prolongDaysEarly);
         if ($newPass !== '') {
             setOption('adminPass', $newPass);
         }
