@@ -61,13 +61,17 @@ class Cert {
     {
         $idCert = intval($idCert);
         $cert = self::getCert($idCert);
-        try {self::revokeCert($idCert);}
-        catch (Exception $e) {}
+        try {
+            self::revokeCert($idCert);
+        } catch (Exception $e) {
+            errorLog('Failed to revoke certificate'. $e);
+        }
         $ssh = SSH::getAccount($cert['idSsh']);
         if (!$ssh['shared']) {
             SSH::deleteAccount($cert['idSsh']);
         }
         dbQuery('DELETE FROM cert WHERE idCert=?', $idCert);
+        dbQuery('DELETE FROM exports WHERE idCert=?', $idCert);
     }
 
     public static function revokeCert($idCert)

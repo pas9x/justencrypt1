@@ -9,11 +9,12 @@
 @if (empty($certificates))
   <i>Сертификатов нет</i>
 @else
-  <table class='grid'>
+  <h3 class='cool'>Ваши сертификаты</h3>
+  <table class='grid certList'>
     <tr>
-      <th>ID</th>
+      <th data-hint='* Идентификатор сертификата в базе данных'>ID</th>
       <th>Домен</th>
-      <th>Годен до</th>
+      <th data-hint='* Дата ДО которой сертификат считается действительным. В день этой даты сайт/сервис использующий данный сертификат перестаёт работать по SSL.'>Годен до</th>
       <th>Действие</th>
     </tr>
     @foreach($certificates as $cert)
@@ -29,5 +30,6 @@
     </tr>
     @endforeach
   </table>
+  <div id='hint'></div>
 @endif
 @stop

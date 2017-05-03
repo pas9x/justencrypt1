@@ -1,6 +1,7 @@
 @extends('cabinet')
 
 @section('head')
+  <link rel='stylesheet' href='/css/mod_ssh.css' media='all'>
   <script type='text/javascript' src='/js/mod_ssh.js'></script>
 @append
 
@@ -8,7 +9,8 @@
 @if (empty($accounts))
   <i>Нет аккаунтов</i>
 @else
-  <table class='grid'>
+  <h3 class='cool'>SSH-аккаунты</h3>
+  <table class='grid sshList'>
     <tr>
       <th>ID</th>
       <th>Название</th>
@@ -20,8 +22,9 @@
       <td>{{ $account['idSsh'] }}</td>
       <td>{{ $account['sharedName'] }}</td>
       <td>{{ $account['displayHost'] }}</td>
-      <td>[ <a href='{{ $account['editLink'] }}'>Редактировать</a> |
-            <a href='{{ $account['delLink'] }}' onclick='return confirmDelete()'>Удалить</a> ]
+      <td>[ <a href='{{ $account['editLink'] }}'>Редактировать</a>
+          | <a href='{{ $account['delLink'] }}' onclick='return confirmDelete()'>Удалить</a>
+          ]
       </td>
     </tr>
   @endforeach

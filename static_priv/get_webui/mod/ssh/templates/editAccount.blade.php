@@ -6,7 +6,8 @@
 @append
 
 @section('modcontent')
-<form method='POST' action='{{ $action }}'>
+<h3 class='cool'>Настройки SSH-аккаунта</h3>
+<form method='POST' action='{{ $action }}' class='sshForm'>
 <table class='form'>
   <tr><td>Название аккаунта:</td><td><input type='text' name='sharedName' value='{{ $sharedName }}'></td></tr>
   <tr><td>SSH-сервер:</td><td><input type='text' name='host' value='{{ $host }}'></td></tr>

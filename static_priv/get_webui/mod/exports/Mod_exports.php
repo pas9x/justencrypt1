@@ -25,6 +25,7 @@ class Mod_exports extends WebuiModuleAdmin {
     {
         $idCert = intval(get('idCert'));
         $cert = Cert::getCert($idCert);
+        $certLink = self::modLink('cert', 'showCert', compact('idCert'));
         $exporters = Exports::listExporters();
         $exports = Exports::listExports(null, 25, $idCert);
         foreach ($exports as &$export) {
@@ -37,7 +38,7 @@ class Mod_exports extends WebuiModuleAdmin {
             $export['startLink'] = $this->selfLink('doExport', compact('idExport'));
         }
 
-        $this->signs += compact('idCert', 'cert', 'exports', 'exporters');
+        $this->signs += compact('idCert', 'cert', 'certLink', 'exports', 'exporters');
         $this->template = 'certExports';
         $this->title = 'Конфигурации выгрузки сертификата ' . $cert['domain'];
         $this->display();
@@ -60,6 +61,7 @@ class Mod_exports extends WebuiModuleAdmin {
         $this->signs['exampleFinalCommand'] = $exporterClass::exampleFinalCommand();
         $this->signs['idCert'] = $idCert;
         $this->signs['cert'] = Cert::getCert($idCert);
+        $this->signs['exportsLink'] = $this->selfLink('certExports', compact('idCert'));
         $this->display();
     }
 
@@ -91,6 +93,7 @@ class Mod_exports extends WebuiModuleAdmin {
     {
         $idExport = intval(get('idExport'));
         $export = Exports::getExport($idExport);
+        $idCert = $export['idCert'];
         $exporters = Exports::listExporters();
         $exporterName = $export['exporterName'];
         $this->signs += $export;
@@ -98,6 +101,7 @@ class Mod_exports extends WebuiModuleAdmin {
         $this->signs['exporterName'] = $exporterName;
         $this->signs['exporterTitle'] = $exporters[$exporterName];
         $this->signs['cert'] = Cert::getCert($export['idCert']);
+        $this->signs['exportsLink'] = $this->selfLink('certExports', compact('idCert'));
         $this->template = 'editExportForm';
         $this->title = 'Настройка выгрузки для ' . $exporters[$exporterName];
         $this->display();

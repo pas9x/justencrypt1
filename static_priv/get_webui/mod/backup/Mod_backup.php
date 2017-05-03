@@ -33,7 +33,7 @@ class Mod_backup extends WebuiModuleAdmin
     public function func_importBackup()
     {
         if (empty($_FILES['backupFile']['tmp_name'])) {
-            displayError('При сабмите формы вы не выбрали файл с бэкапом');
+            displayError('Файл с бэкапом небыл загружен на сервер. Возможно вы забыли его выбрать перед сабмитом формы.');
         }
         $fileName = $_FILES['backupFile']['tmp_name'];
         try {

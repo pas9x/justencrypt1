@@ -1,7 +1,11 @@
 @extends('cabinet')
 
+@section('head')
+  <script type='text/javascript' src='/js/mod_cert.js'></script>
+@append
+
 @section('modcontent')
-<form method='POST' action='{{ $confirmLink }}'>
+<form method='POST' action='{{ $confirmLink }}' class='registerAccountForm'>
   <strong>Внимание:</strong> на ваш почтовый ящик {{ $adminEmail }} будет зарегистрирован аккаунт Let`s Encrypt.
   Указать email перед регистрацией аккаунта можно в <a href='{{ $configLink }}'>настройках системы</a>.
   После регистрации аккаунта Let`s Encrypt изменить его почтовый ящик <strong>будет уже невозможно</strong>, так что

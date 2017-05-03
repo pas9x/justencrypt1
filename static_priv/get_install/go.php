@@ -78,7 +78,7 @@ $defaultCsrTemplate = [
     'stateOrProvinceName' => 'Moscow',
     'localityName' => 'Moscow',
     'organizationName' => 'Private Person',
-    'organizationalUnitName' => 'IT'
+    'organizationalUnitName' => 'None'
 ];
 setOption('defaultCsrTemplate', $defaultCsrTemplate);
 

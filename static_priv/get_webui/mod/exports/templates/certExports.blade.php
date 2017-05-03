@@ -1,12 +1,14 @@
 @extends('cabinet')
 
 @section('head')
-  {{--<link rel='stylesheet' href='/css/mod_cert.css' media='all'>--}}
+
+@section('head')
+  <link rel='stylesheet' href='/css/mod_exports.css' media='all'>
   <script type='text/javascript' src='/js/mod_exports.js'></script>
 @append
 
 @section('modcontent')
-<form method='GET' action='/index.php'>
+<form method='GET' action='/index.php' class='newExportForm'>
   <input type='hidden' name='get' value='webui'>
   <input type='hidden' name='mod' value='exports'>
   <input type='hidden' name='func' value='newExportForm'>
@@ -16,7 +18,7 @@
     {!! listOptions($exporters) !!}
   </select>
   <input type='submit' value='&gt;&gt;'>
-  <strong style='float:right; margin:3px 10px 3px 0'>Сертификат: {{ $cert['domain'] }}</strong>
+  <span class='certLink'>Сертификат: <a href='{{ $certLink }}'>{{ $cert['domain'] }}</a></span>
   <hr>
 </form>
 
@@ -25,11 +27,11 @@
 @else
   <table class='grid'>
     <tr>
-      <th>ID</th>
-      <th>ПО</th>
-      <th>Синхронизация</th>
-      <th>Статус</th>
-      <th>Дата статуса</th>
+      <th data-hint='* Идентификатор конфигурации выгрузки в базе данных'>ID</th>
+      <th data-hint='* Название программного обеспечения для которого делается выгрузка SSL-сертификата'>ПО</th>
+      <th data-hint='* Выгружен-ли актуальный сертификат на сервер. Рассинхронизация может быть если сертификат перевыпущен, но ещё не выгружен на сервер.'>Синхронизация</th>
+      <th data-hint='* Была-ли успешна последняя операция выгрузки сертификата'>Статус</th>
+      <th data-hint='* Дата последней выгрузки сертификата'>Дата статуса</th>
       <th>Действие</th>
     </tr>
     @foreach($exports as $export)
@@ -48,5 +50,6 @@
     </tr>
     @endforeach
   </table>
+  <div id='hint'></div>
 @endif
 @stop

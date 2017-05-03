@@ -17,4 +17,8 @@ function confirmDelete() {
 
 $(window).on('load', function() {
     $("input[name='authType']").on('click', onChangeAuthType);
+
+    $('.sshForm').on('submit', function() {
+        submitWait(this);
+    });
 });

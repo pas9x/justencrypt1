@@ -24,7 +24,7 @@
 @else
   <div>Ошибка: {!! $html ? $messages[0] : escapeHTML($messages[0]) !!}</div>
 @endif
-    <a href='{{ empty($backLink) ? SITE_URI : $backLink }}' class='backLink'><span>{{ empty($backLabel) ? 'Вернуться на сайт' : $backLabel }}</span></a>
+    <a href='{{ empty($backLink) ? SITE_URI : $backLink }}' class='backLink'><span>{{ empty($backLabel) ? 'Вернуться назад' : $backLabel }}</span></a>
   </div>
 </td></tr></table>
 

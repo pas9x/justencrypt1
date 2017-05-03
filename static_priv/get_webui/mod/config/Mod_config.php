@@ -65,7 +65,7 @@ class Mod_config extends WebuiModuleAdmin {
             $errors[] = 'E-mail администратора указан неверно';
         }
 
-        $leAccountKey = post('leAccountKey');
+        $leAccountKey = trim(post('leAccountKey'));
 
         $nameRegexpr = '/^[a-z0-9][a-z0-9\- ]{0,48}[a-z0-9]$/i';
         $defaultCsrTemplate = [

@@ -1,3 +1,3 @@
-<tr><td>Путь к файлу приватного ключа:</td><td><input type='text' size='50' name='privateKeyFile'></td></tr>
-<tr><td>Путь к файлу сертификата:</td><td><input type='text' size='50' name='certFile'></td></tr>
-<tr><td>Путь к файлу цепочки сертификатов:</td><td><input type='text' size='50' name='chainFile'></td></tr>
+<tr><td>Путь к файлу приватного ключа:</td><td><input type='text' size='50' name='privateKeyFile' placeholder='/etc/ssl/mysite.ru/private.key' data-hint='* Полный путь к файлу в который будет записан приватный ключ сертификата'></td></tr>
+<tr><td>Путь к файлу сертификата:</td><td><input type='text' size='50' name='certFile' placeholder='/etc/ssl/mysite.ru/cert.pem' data-hint='* Полный путь к файлу в который будет записан сертификат домена'></td></tr>
+<tr><td>Путь к файлу цепочки сертификатов:</td><td><input type='text' size='50' name='chainFile' placeholder='/etc/ssl/mysite.ru/chain.pem' data-hint='* Полный путь к файлу в который будет записана цепочка сертификатов удостоверяющих центров'></td></tr>

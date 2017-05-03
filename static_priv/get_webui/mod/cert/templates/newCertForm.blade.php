@@ -6,10 +6,11 @@
 @append
 
 @section('modcontent')
-<form method='POST' action='{{ $action }}'>
-<table id='certForm' class='form'>
-  <tr><td>Домен:</td><td><input type='text' name='domain'></td></tr>
-  <tr><td>Корневая директория сайта:</td><td><input type='text' name='documentRoot' size='40'></td></tr>
+<h3 class='cool'>Параметры регистрации сертификата</h3>
+<form method='POST' action='{{ $action }}' class='certForm'>
+<table class='form'>
+  <tr><td>Домен:</td><td><input type='text' name='domain' placeholder='mysite.ru' data-hint='* Домен на который будет зарегистрирован сертификат'></td></tr>
+  <tr><td>Корневая директория сайта:</td><td><input type='text' name='documentRoot' size='40' placeholder='/home/mysite/public_html' data-hint='* В эту директорию будет загружен файл верификации. Пример: при загрузке в эту директорию файла check.txt он должен быть доступен по адресу http://mysite.ru/check.txt'></td></tr>
   <tr>
     <td>SSH-аккаунт:</td>
     <td>
@@ -17,9 +18,9 @@
       <label><input type='radio' name='shared' value='1' id='shared1' onclick='switchShared()' {{ empty($sshAccounts) ? 'disabled' : '' }}>Выбрать существующий</label>
     </td>
   </tr>
-  <tr class='sshCustom'><td>SSH-сервер:</td><td><input type='text' name='host'></td></tr>
+  <tr class='sshCustom'><td>SSH-сервер:</td><td><input type='text' name='host' placeholder='123.45.67.89' data-hint='* Имя хоста или IP-адрес SSH-сервера к которому следует подключиться для загрузки нового сертификата.'></td></tr>
   <tr class='sshCustom'><td>Порт:</td><td><input type='text' name='port' size='6' value='22'></td></tr>
-  <tr class='sshCustom'><td>Логин:</td><td><input type='text' name='login'></td></tr>
+  <tr class='sshCustom'><td>Логин:</td><td><input type='text' name='login' placeholder='root'></td></tr>
   <tr class='sshCustom'>
     <td>Тип авторизации:</td>
     <td>
@@ -45,22 +46,6 @@
       </select>
     </td>
   </tr>
-{{--
-  <tr>
-    <td>Экспортировать файлы для:</td>
-    <td>
-      <select name='exporter' onchange='switchExporter()'>
-      @foreach($exporters as $exporterName => $exporterTitle)
-        <option value='{{ $exporterName }}'>{{ $exporterTitle }}</option>
-      @endforeach
-      </select>
-    </td>
-  </tr>
-  @foreach($exporters as $exporterName => $exporterTitle)
-  @include('exporters.' . $exporterName)
-  @endforeach
-  <tr><td>После экспорта выполнить команду:</td><td><input type='text' name='cmd' size='40'></td></tr>
---}}
   <tr>
     <td colspan='2'>
     <hr>
@@ -68,5 +53,7 @@
     </td>
   </tr>
 </table>
+<div id='hint'></div>
+<div class='note hidden'>Регистрация сертификата может занять 1-2 минуты. Не закрывайте страницу, дождитесь завершения обработки вашего запроса.</div>
 </form>
 @stop

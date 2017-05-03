@@ -42,5 +42,14 @@ function confirmDelete() {
 }
 
 $(window).on('load', function() {
-    switchShared();
+    if (elem('shared0')) {
+        switchShared();
+    }
+    $('.certForm').on('submit', function() {
+        submitWait(this);
+        $('.note').show();
+    });
+    $('.registerAccountForm').on('submit', function() {
+        submitWait(this);
+    });
 });

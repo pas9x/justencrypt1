@@ -8,7 +8,7 @@
 @section('modcontent')
   <h3 class='cool'>Параметры сертификата</h3>
 
-  <table class='form'>
+  <table class='form showCert'>
     <tr><td>ID:</td><td>{{ $idCert }}</td></tr>
     <tr><td>Домен:</td><td>{{ $domain }}</td></tr>
     <tr><td>Дата выпуска:</td><td>{{ date('d.m.Y', $issuedTimestamp) }}</td></tr>

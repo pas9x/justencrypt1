@@ -6,10 +6,11 @@
 @append
 
 @section('modcontent')
-<form method='POST' action='{{ $action }}'>
-<table id='certForm' class='form'>
+<h3 class='cool'>Параметры верификации домена</h3>
+<form method='POST' action='{{ $action }}' class='certForm'>
+<table class='form'>
   <tr><td>Домен:</td><td><input type='text' name='domain' value='{{ $cert['domain'] }}' disabled></td></tr>
-  <tr><td>Корневая директория сайта:</td><td><input type='text' name='documentRoot' size='40' value='{{ $cert['documentRoot'] }}'></td></tr>
+  <tr><td>Корневая директория сайта:</td><td><input type='text' name='documentRoot' size='40' value='{{ $cert['documentRoot'] }}' data-hint='* В эту директорию будет загружен файл верификации. Пример: при загрузке в эту директорию файла check.txt он должен быть доступен по адресу http://mysite.ru/check.txt'></td></tr>
   <tr>
     <td>SSH-аккаунт:</td>
     <td>
@@ -29,7 +30,7 @@
   </tr>
   <tr class='sshCustom' id='authPass'>
     <td>Новый пароль:</td>
-    <td><input type='text' name='pass'></td>
+    <td><input type='text' name='pass' data-hint='* Новый пароль на SSH-аккаунт этой конфигурации выгрузки. Оставьте это поле пустым если не хотите менять текущий пароль.'></td>
   </tr>
   <tr class='sshCustom' id='authKey'>
     <td>Новый приватный ключ:</td>
@@ -53,5 +54,6 @@
     </td>
   </tr>
 </table>
+<div id='hint'></div>
 </form>
 @stop
