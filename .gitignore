@@ -1,6 +1,7 @@
 /*
 /static_priv/get_test/dev.php
 /static_priv/composer/*
+/static_priv/version.php
 !/static_priv/composer/composer.json
 !.gitignore
 !/static_priv

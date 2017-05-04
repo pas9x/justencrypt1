@@ -14,5 +14,5 @@
 @yield('content')
 </div>
 
-<footer class='page'><a href='http://pascalhp.net/justencrypt/' data-target='_blank'>JustEncrypt Panel</a> v{{ APP_VERSION }}</footer>
+<footer class='page'><a href='http://pascalhp.net/justencrypt/' data-target='_blank'>JustEncrypt Panel</a> v-{{ RELEASE_VERSION }}</footer>
 @stop

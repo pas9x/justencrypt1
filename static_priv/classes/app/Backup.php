@@ -14,7 +14,8 @@ class Backup
         $sshAccounts = SSH::listAccounts();
         $backup = [
             'info' => [
-                'appVersion' => APP_VERSION,
+                'releaseVersion' => RELEASE_VERSION,
+                'releaseCommit' => RELEASE_COMMIT,
                 'timestamp' => time()
             ],
             'adminEmail' => getOption('adminEmail', ''),

@@ -43,7 +43,18 @@ if (count($modulesAbsent) > 0) {
 }
 unset($modulesRequired, $modulesAbsent);
 
-define('APP_VERSION', '1.0.0');
+if (file_exists(__DIR__ . '/version.php')) {
+    require_once __DIR__ . '/version.php';
+}
+if (!defined('RELEASE_VERSION')) {
+    define('RELEASE_VERSION', 'dev');
+}
+if (!defined('RELEASE_COMMIT')) {
+    define('RELEASE_COMMIT', '');
+}
+if (!defined('RELEASE_TIMESTAMP')) {
+    define('RELEASE_TIMESTAMP', 0);
+}
 define('PUBDIR', BASEDIR . '/static_pub');
 define('PRIVDIR', BASEDIR . '/static_priv');
 define('DATADIR', BASEDIR . '/userdata');
