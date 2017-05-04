@@ -13,7 +13,7 @@ function htmlErrorPrinter($message)
             $page = str_replace('{message}', $message, $errorPageTemplate);
             die($page);
         } else {
-            $message = 'Произошла непредвиденная ошибка. Вся нужная информация о проблеме уже сохранена в файл. Для скорейшего решения проблемы обратитесь к администратору сайта.';
+            $message = 'Произошла непредвиденная ошибка. Информация о проблеме сохранена в лог ошибок.';
             $page = errhtmlGenerate($message);
         }
         out($page);

@@ -82,6 +82,12 @@ class Mod_cert extends WebuiModuleAdmin {
     }
 
     public function func_newCertForm() {
+        $leAccountKey = getOption('leAccountKey', '');
+        if (empty($leAccountKey)) {
+            $backLink = $this->selfLink('registerAccountConfirm');
+            $msg = 'В настройках системы не указан приватный ключ аккаунта. Возможно вы ещё не зарегистрировали аккаунт Let`s Encrypt.';
+            displayError($msg, $backLink, 'Зарегистрировать аккаунт');
+        }
         $this->template = 'newCertForm';
         $this->title = 'Регистрация SSL-сертификата';
         $this->signs['sshAccounts'] = SSH::listAccounts();
