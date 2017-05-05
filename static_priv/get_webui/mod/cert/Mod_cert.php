@@ -126,7 +126,7 @@ class Mod_cert extends WebuiModuleAdmin {
         }
 
         $backLink = $this->selfLink();
-        displayError('Сертификат успешно зарегистрирован', $backLink, 'Список сертификатов');
+        displayOK('Сертификат успешно зарегистрирован', $backLink, 'Список сертификатов');
     }
 
     public function func_editCert()
