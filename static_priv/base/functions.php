@@ -41,10 +41,16 @@ function errorHandler($errno, $errstr, $errfile = null, $errline = null, $errcon
     if (error_reporting() === 0) {
         return true;
     }
+    if ($errno === E_DEPRECATED) {
+        return
+    }
     throw new UnexpectedError($errno, $errstr, $errfile, $errline, $errcontext);
 }
 
-function exceptionHandler(Exception $e)
+/**
+ * @param \Exception|\Throwable $e
+ */
+function exceptionHandler($e)
 {
     if ($e instanceof ErrorMessage) {
         if (function_exists('displayError')) {
@@ -177,11 +183,7 @@ function errorPrinter(callable $newPrinter = null)
 {
     static $printer = null;
     if (!is_null($newPrinter)) {
-        if (is_callable($newPrinter)) {
-            $printer = $newPrinter;
-        } else {
-            throw new Exception('$newPrinter is not callable');
-        }
+		$printer = $newPrinter;
     }
     return $printer;
 }

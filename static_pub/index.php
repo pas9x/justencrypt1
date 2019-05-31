@@ -1,3 +1,2 @@
 <?php
-
-(@include '../static_priv/index.php') or die('Bootstrap error #10');
+require __DIR__ . '/../static_priv/index.php';
